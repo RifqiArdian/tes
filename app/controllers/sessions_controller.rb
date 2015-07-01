@@ -11,12 +11,12 @@ class SessionsController < ApplicationController
 		flash = {}
 		if authorized_user
 	    session[:userid] = authorized_user.id
-			redirect_to users_path, notice: "Wow Welcome back, you logged in as #{authorized_user.username}"
+			redirect_to distributors_path, notice: "Wow Welcome back, you logged in as #{authorized_user.username}"
 
 		else
 			@flashmessage = {}
 			@flashmessage[:alert] = "Invalid Username or Password"
-			render "new"
+			render "index"
 		end
 	end
 

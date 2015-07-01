@@ -11,7 +11,9 @@
       <th>Phone</th>
       <th>Code</th>
       <th>Distributor Id</th>
+      <% if current_user.role=="admin" %>
       <th colspan="3">Action</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -29,9 +31,11 @@
         <td><%= warehouse.phone %></td>
         <td><%= warehouse.code %></td>
         <td><%= warehouse.distributor_id %></td>
+        <% if current_user.role=="admin" %>
         <td><%= link_to 'Show', warehouse %></td>
         <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
         <td><%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
       <% end %>
     <% end %>
@@ -39,8 +43,9 @@
 </table>
 
 <br>
-
+<% if current_user.role=="admin" %>
 <%= link_to 'New Warehouse', new_warehouse_path %><br/>
+<% end %>
 <%= link_to 'Employee', Employee %><br/>
 <%= link_to 'Distributor', Distributor %><br/>
 <% if current_user.role=="admin" %>
