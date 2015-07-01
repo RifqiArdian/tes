@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   resources :employees
   resources :distributors
   resources :warehouses
+  resources :users
+
+  resources :sessions, only: [:index, :create, :destroy]
+
+  root 'sessions#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
