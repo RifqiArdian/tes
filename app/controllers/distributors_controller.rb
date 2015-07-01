@@ -1,4 +1,8 @@
 class DistributorsController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user
+  before_filter :authenticate_admin, except: [:index, :show, :edit, :update]
+  before_filter :not_current_user, only: [:edit, :update]
   def index
     @distributors = Distributor.all
   end

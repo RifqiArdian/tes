@@ -45,3 +45,6 @@
 <%= link_to 'New Distributor', new_distributor_path %><br/>
 <%= link_to 'Employee', Employee %><br/>
 <%= link_to 'Warehouse', Warehouse %><br/>
+<% if current_user.role=="admin" %>
+    <%= link_to 'User', User %><br/>
+  <% end %>
