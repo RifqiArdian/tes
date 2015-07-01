@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 		flash = {}
 		if authorized_user
 	    session[:userid] = authorized_user.id
-			redirect_to distributors_path, notice: "Wow Welcome back, you logged in as #{authorized_user.username}"
+			redirect_to employees_path, notice: "Wow Welcome back, you logged in as #{authorized_user.username}"
 
 		else
 			@flashmessage = {}
