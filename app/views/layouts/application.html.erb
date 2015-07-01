@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tes</title>
+  <title>Login</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<% if flash.count.to_i > 0 %>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :p, msg, class: "flash-content flash-#{name}" if msg.is_a?(String) %>
+  <% end %>
+<% end %>
+	
+<%= (link_to "Log Out (#{current_user.name} as #{current_user.role})", session_path(:logout), method: :delete) if session[:userid] %>
+<hr/>
 
 <%= yield %>
 

@@ -1,0 +1,18 @@
+<%= form_tag(sessions_path, class: "form-signin", method: :post) do |f| %>
+  <h2 class="form-signin-heading">sign in now</h2>
+  <div class="login-wrap">
+    <% if @flashmessage.present? %>
+      <div class="login error-explanation">
+        <%- @flashmessage.each do |name, msg| -%>
+          <%= content_tag :p, msg, class: "flash-content flash-#{name}" if msg.is_a?(String) %>
+        <%- end -%> 
+      </div>
+    <% end %>
+
+    <%= text_field_tag :username, "", autofocus: true, class: "form-control", placeholder: "Username" %>
+    <%= password_field_tag :password, "", autocomplete: "off", class: "form-control", placeholder: "Password" %>
+    
+    <%= button_tag "Sign in", class: "btn btn-lg btn-login btn-block", type: "submit" %>
+  </div>
+
+<% end %>
