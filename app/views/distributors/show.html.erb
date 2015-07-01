@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Distributor Id:</b>
+  <%= @distributor.distributor_id %>
+</p>
+<p>
+  <strong>Distributor Name:</strong>
+  <%= @distributor.distributor_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @distributor.address %>
+</p>
+
+<p>
+  <strong>Phone1:</strong>
+  <%= @distributor.phone1 %>
+</p>
+
+<p>
+  <strong>Phone2:</strong>
+  <%= @distributor.phone2 %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @distributor.email %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @distributor.fax %>
+</p>
+<%= link_to 'Edit', edit_distributor_path(@distributor) %> |
+<%= link_to 'Back', distributors_path %>

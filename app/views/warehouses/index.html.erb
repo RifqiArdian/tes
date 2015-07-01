@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Warehouses</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Warehouse Id</th>
+      <th>Warehouse Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Code</th>
+      <th>Distributor Id</th>
+      <th colspan="3">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if @warehouses.count==0%>
+    <tr>
+      <td colspan="7">Tidak ada data yang terdaftar</td>
+    </tr>
+  <% else %>
+    <% @warehouses.each do |warehouse| %>
+      <tr>
+        <td><%= warehouse.warehouse_id %></td>
+        <td><%= warehouse.warehouse_name %></td>
+        <td><%= warehouse.address %></td>
+        <td><%= warehouse.phone %></td>
+        <td><%= warehouse.code %></td>
+        <td><%= warehouse.distributor_id %></td>
+        <td><%= link_to 'Show', warehouse %></td>
+        <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
+        <td><%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Warehouse', new_warehouse_path %><br/>
+<%= link_to 'Employee', Employee %><br/>
+<%= link_to 'Distributor', Distributor %><br/>

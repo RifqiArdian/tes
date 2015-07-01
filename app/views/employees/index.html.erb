@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Employees</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Employee Id</th>
+      <th>Email</th>
+      <th>Fullname</th>
+      <th>Address</th>
+      <th>Nirth Date</th>
+      <th>Join Date</th>
+      <th>Phone</th>
+      <th>Mobile</th>
+      <th>Distributor Id</th>
+      <th>Warehouse _Id</th>
+      <th colspan="3">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if @employees.count==0%>
+    <tr>
+      <td colspan="11">Tidak ada data yang terdaftar</td>
+    </tr>
+  <% else %>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.employee_id %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.fullname %></td>
+        <td><%= employee.address %></td>
+        <td><%= employee.nirthdate %></td>
+        <td><%= employee.joindate %></td>
+        <td><%= employee.phone %></td>
+        <td><%= employee.mobile %></td>
+        <td><%= employee.distributor_id %></td>
+        <td><%= employee.warehouse_id %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %><br/>
+<%= link_to 'Distributor', Distributor %><br/>
+<%= link_to 'Warehouse', Warehouse %><br/>

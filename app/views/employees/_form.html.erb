@@ -1,0 +1,57 @@
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Employee_id %><br />
+    <%= f.text_field :employee_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :Fullname %><br>
+    <%= f.text_field :fullname %>
+  </div>
+  <div class="field">
+    <%= f.label :Address %><br>
+    <%= f.text_field :address %>
+  </div>
+    <div class="field">
+    <%= f.label :Nirthdate %><br>
+    <%= f.text_field :nirthdate %>
+  </div>
+  <div class="field">
+    <%= f.label :Joinhdate %><br>
+    <%= f.text_field :joindate %>
+  </div>
+    <div class="field">
+    <%= f.label :Phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+    <div class="field">
+    <%= f.label :Mobile %><br>
+    <%= f.text_field :mobile %>
+  </div>
+    <div class="field">
+    <%= f.label :Distributor_id %><br>
+    <%= f.select :distributor_id, options_for_select(Distributor.all.map{|x| [x.distributor_name, x.id]}) %>
+  </div>
+      <div class="field">
+    <%= f.label :Warehouse_id %><br>
+    <%= f.select :warehouse_id, options_for_select(Warehouse.all.map{|x| [x.warehouse_name, x.id]}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
